@@ -40,11 +40,13 @@ def faiss_rag(filename, prompt):
 
 def main():
     st.title("Chatbot using your Text File. Implementing RAG using FAISS and LangChain")
-
     text_file = st.file_uploader("Choose a text file", type="txt")
-    if text_file:
+    if text_file is not None:
+        file_content = text_file.read().decode("utf-8")
         prompt = st.text_input("Ask anything")
-        st.write(faiss_rag(text_file, prompt))
+        if prompt:
+            response = faiss_rag(file_content, prompt)
+            st.write(response)
 
 if __name__ == "__main__":
     main()
