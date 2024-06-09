@@ -37,7 +37,9 @@ def faiss_rag(prompt):
         | StrOutputParser() 
     )
 
-    return str(rag_chain.invoke(prompt))
+    response = rag_chain.invoke(prompt)
+    print(response, type(response))
+    return str(response)
 
 def main():
     st.title("Chatbot using your Text File. Implementing RAG using FAISS and LangChain")
