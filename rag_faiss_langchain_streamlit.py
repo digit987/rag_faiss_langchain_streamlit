@@ -38,14 +38,14 @@ def faiss_rag(query):
     )
 
     response = rag_chain.invoke(query)
-    print(response, type(response))
     return response
 
 def main():
     st.title("Chatbot using your Text File. Implementing RAG using FAISS and LangChain")
     query = st.text_input("Ask anything")
     response = faiss_rag(query)
-    st.write(response)
+    if response:
+        st.write(response)
 
 if __name__ == "__main__":
     main()
