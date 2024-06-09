@@ -11,7 +11,7 @@ import streamlit as st
 os.environ["OPENAI_API_KEY"] == st.secrets["OPENAI_API_KEY"]
 
 def faiss_rag(filename, prompt):
-    loader = TextLoader("/kaggle/input/state-of-the-union/state_of_the_union.txt")
+    loader = TextLoader(filename)
     documents = loader.load()
     text_splitter = CharacterTextSplitter(chunk_size=1000, chunk_overlap=0)
     docs = text_splitter.split_documents(documents)
