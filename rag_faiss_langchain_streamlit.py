@@ -5,6 +5,7 @@ from langchain_core.output_parsers import StrOutputParser
 from langchain_core.prompts import ChatPromptTemplate
 from langchain_core.runnables import RunnablePassthrough
 from langchain_openai import ChatOpenAI, OpenAIEmbeddings
+import streamlit as st
 
 # Load environment variables
 os.environ["OPENAI_API_KEY"] == st.secrets["OPENAI_API_KEY"]
