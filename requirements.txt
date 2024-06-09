@@ -1,6 +1,7 @@
 langchain
 langchain-community
-faiss-cpu
 langchain-openai
+langchain_text_splitters
+faiss-cpu
 tiktoken
 streamlit
