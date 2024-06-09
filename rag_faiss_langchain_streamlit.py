@@ -11,7 +11,7 @@ import streamlit as st
 # Load environment variables
 os.environ["OPENAI_API_KEY"] == st.secrets["OPENAI_API_KEY"]
 
-def faiss_rag(prompt):
+def faiss_rag(query):
     loader = TextLoader("state_of_the_union.txt")
     documents = loader.load()
     text_splitter = CharacterTextSplitter(chunk_size=1000, chunk_overlap=0)
@@ -37,14 +37,14 @@ def faiss_rag(prompt):
         | StrOutputParser() 
     )
 
-    response = rag_chain.invoke(prompt)
+    response = rag_chain.invoke(query)
     print(response, type(response))
-    return str(response)
+    return response
 
 def main():
     st.title("Chatbot using your Text File. Implementing RAG using FAISS and LangChain")
-    prompt = st.text_input("Ask anything")
-    response = faiss_rag(prompt)
+    query = st.text_input("Ask anything")
+    response = faiss_rag(query)
     st.write(response)
 
 if __name__ == "__main__":
