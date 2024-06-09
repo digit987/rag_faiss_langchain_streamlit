@@ -45,7 +45,7 @@ def main():
         file_name = text_file.name
         prompt = st.text_input("Ask anything")
         if prompt:
-            response = faiss_rag(file_content, prompt)
+            response = faiss_rag(file_name, prompt)
             st.write(response)
 
 if __name__ == "__main__":
