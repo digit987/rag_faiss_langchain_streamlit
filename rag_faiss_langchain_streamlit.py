@@ -11,6 +11,7 @@ import streamlit as st
 os.environ["OPENAI_API_KEY"] == st.secrets["OPENAI_API_KEY"]
 
 def faiss_rag(file_name, prompt):
+    print(file_name)
     loader = TextLoader(file_name)
     documents = loader.load()
     text_splitter = CharacterTextSplitter(chunk_size=1000, chunk_overlap=0)
@@ -43,7 +44,7 @@ def main():
     text_file = st.file_uploader("Choose a text file", type="txt")
     if text_file is not None:
         file_name = text_file.name
-        st.write(file_name)
+        print(file_name)
         prompt = st.text_input("Ask anything")
         if prompt:
             response = faiss_rag(file_name, prompt)
